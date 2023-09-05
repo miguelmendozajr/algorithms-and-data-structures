@@ -1,5 +1,5 @@
-//Gabriel Ernesto Mujica Proulx
-//A01285409
+//Gabriel Ernesto Mujica Proulx A01285409
+// Miguel Mendoza Jaidar A01234354
 //01/09/2023
 //Declaración clase Error
 

@@ -1,5 +1,5 @@
-//Gabriel Ernesto Mujica Proulx
-//A01285409
+//Gabriel Ernesto Mujica Proulx A01285409
+// Miguel Mendoza Jaidar A01234354
 //Actividad 1.3
 //01/09/2023
 
