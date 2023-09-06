@@ -4,6 +4,8 @@
 //Actividad 1.3
 //01/09/2023
 
+// comando de ejecución: g++ -std=c++11 *.cpp -Wall && ./a.out
+
 #include "Error.h"
 #include <iostream>
 #include <vector>
