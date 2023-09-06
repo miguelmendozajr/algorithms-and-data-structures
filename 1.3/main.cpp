@@ -1,12 +1,15 @@
 //Gabriel Ernesto Mujica Proulx A01285409
 // Miguel Mendoza Jaidar A01234354
+
 //Actividad 1.3
 //01/09/2023
 
-#include <bits/stdc++.h>
-
-#include "Error.cpp"
 #include "Error.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -30,6 +33,7 @@ void cargarArchivo(vector<Error*> &errores){
             string razon;
 
             ss >> mes >> dia >> hora >> IP >> razon;
+            cout<<mes<<dia<<hora<<IP<<razon<<endl;
 
             errores.push_back(new Error(mes, dia, hora, IP, razon));
         } 
@@ -40,4 +44,10 @@ void cargarArchivo(vector<Error*> &errores){
     else {
         cout << "Archivo de bitácora invalido." << endl;
     }
+}
+
+int main(){
+    vector<Error*> errores;
+    cargarArchivo(errores);
+    return 0;
 }

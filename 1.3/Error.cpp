@@ -3,11 +3,7 @@
 //01/09/2023
 
 //Implementacion clase Error
-
-#ifndef ERROR_CPP
-#define ERROR_CPP
-
-#include <bits/stdc++.h>
+#include "Error.h"
 
 using namespace std;
 
@@ -101,5 +97,5 @@ string Error::getIP(){
 }
 
 string Error::getRazon(){
-
+	return razon;
 }

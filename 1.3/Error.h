@@ -2,11 +2,10 @@
 // Miguel Mendoza Jaidar A01234354
 //01/09/2023
 //Declaración clase Error
-
 #ifndef ERROR_CPP
 #define ERROR_CPP
 
-#include <bits/stdc++.h>
+#include <string>
 
 using namespace std;
 
@@ -37,3 +36,5 @@ class Error{
 
 
 };
+
+#endif
