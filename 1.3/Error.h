@@ -1,40 +1,69 @@
-//Gabriel Ernesto Mujica Proulx A01285409
+// Gabriel Ernesto Mujica Proulx A01285409
 // Miguel Mendoza Jaidar A01234354
-//01/09/2023
-//Declaración clase Error
-#ifndef ERROR_CPP
-#define ERROR_CPP
+// Esteban Sierra Baccio A00836286
+
+// Declaración y definición de la clase Error
+// Ultima modificacion 07/09/2023
 
 #include <string>
+#include "Date.h"
 
 using namespace std;
 
 class Error{
 	private:
-		int mes;
-		int dia;
-		string hora;
+        Date fecha;
 		string IP;
 		string razon;
 
 	public:
 		Error();
-		Error(string _mes, int _dia, string _hora, string _IP, string _razon);
+		Error(Date _fecha, string _IP, string _razon);
 
-		void setMes(string _mes);
-		void setDia(int _dia);
-		void setHora(string _hora);
 		void setIP(string _IP);
 		void setRazon(string _razon);
+        void setFecha(Date _fecha);
 
-		int getMes();
-		int getDia();
-		string getHora();
 		string getIP();
 		string getRazon();
+        Date getFecha();
 
 
 
 };
 
-#endif
+Error::Error(){
+    Date fecha;
+	IP = "-";
+	razon = "-";
+}
+
+Error::Error(Date _fecha, string _IP, string _razon){
+    fecha = _fecha;
+	IP = _IP;
+	razon = _razon;
+}
+
+void Error::setIP(string _IP){
+    IP = _IP;
+}
+
+void Error::setRazon(string _razon){
+    razon = _razon;
+}
+
+void Error::setFecha(Date _fecha){
+    fecha = _fecha;
+}
+
+string Error::getIP(){
+    return IP;
+}
+
+string Error::getRazon(){
+	return razon;
+}
+
+Date Error::getFecha(){
+    return fecha;
+}
