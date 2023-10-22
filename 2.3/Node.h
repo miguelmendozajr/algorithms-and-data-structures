@@ -7,9 +7,12 @@ public:
     T data;
     Node* next;
     Node* prev;
-
+    Node();
     Node(T data);
 };
+
+template <typename T>
+Node<T>::Node(){}
 
 template <typename T>
 Node<T>::Node(T data) {

@@ -1,6 +1,7 @@
 #ifndef DOUBLYLINKEDLIST_H
 #define DOUBLYLINKEDLIST_H
 #include "Node.h"
+#include "mergeSort.cpp"
 
 template <typename T>
 class DoublyLinkedList {
@@ -92,30 +93,8 @@ void DoublyLinkedList<T>::sortByIp() {
         return;
     }
 
-    Node<T>* current = head;
-
-    while (current != nullptr) {
-        Node<T>* minNode = current;
-        Node<T>* temp = current->next;
-
-        while (temp != nullptr) {
-            if (temp->data.getIp().getInt() < minNode->data.getIp().getInt()) {
-                cout << temp->data.getIp().getInt() << endl;
-                minNode = temp;
-            }
-            temp = temp->next;
-        }
-
-        if (minNode != current) {
-            T tempData = current->data;
-            current->data = minNode->data;
-            minNode->data = tempData;
-        }
-
-        current = current->next;
-    }
+    head = mergeSort(head);
 }
-
 
 template <typename T>
 void DoublyLinkedList<T>::filterByIp(long long ip1, long long ip2) {
@@ -126,8 +105,8 @@ void DoublyLinkedList<T>::filterByIp(long long ip1, long long ip2) {
     Node<T> * current = head;
     while (current != nullptr) {
         long long currentIp = current->data.getIp().getInt();
-        if (currentIp < ip1 || currentIp > ip2) {
-            Node<T>* temp = current;
+        if (currentIp < ip1) {
+            Node<T> *temp = current;
             if (current == head) {
                 head = current->next;
                 if (head != nullptr) {
@@ -141,12 +120,26 @@ void DoublyLinkedList<T>::filterByIp(long long ip1, long long ip2) {
             }
             current = current->next;
             delete temp;
-        } else {
+        }
+        else if(currentIp > ip2){
+            while (current->next != nullptr) {
+                Node<T> *temp = current->next;
+                current->next = temp->next;
+                if (current->next != nullptr) {
+                    current->next->prev = current;
+                }
+                delete temp;
+            }
+            
+            return;
+
+        }
+        else {
             current = current->next;
+            cout << current->next->data.getIp().getInt() <<endl;
         }
     }
 }
-
 
 
 template <typename T>

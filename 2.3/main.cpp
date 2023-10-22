@@ -48,17 +48,16 @@ int main() {
     list.sortByIp();
     
     string input1, input2;
-    IP ip1, ip2;
     cout << "Indica la IP del INICIO de la busqueda: ";
     cin >> input1;
-    ip1.setAddress(input1);
     cout << "Indica la IP del FINAL de la busqueda: ";
     cin >> input2;
-    ip2.setAddress(input2);
+    IP ip1(input1), ip2(input2);
     list.filterByIp(ip1.getInt(), ip2.getInt());
 
     cout << "Escribiendo datos ordenados en el archivo..." << endl;
     list.writeDataToFile();
+    cout << "Proceso terminado." << endl;
 
 	return 0;
 }
