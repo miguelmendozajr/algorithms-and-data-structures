@@ -105,7 +105,7 @@ void DoublyLinkedList<T>::filterByIp(long long ip1, long long ip2) {
     Node<T> * current = head;
     while (current != nullptr) {
         long long currentIp = current->data.getIp().getInt();
-        if (currentIp < ip1) {
+        if (currentIp > ip1) {
             Node<T> *temp = current;
             if (current == head) {
                 head = current->next;
@@ -122,7 +122,7 @@ void DoublyLinkedList<T>::filterByIp(long long ip1, long long ip2) {
             delete temp;
         }
         else {
-            if(current->next->data.getIp().getInt() > ip2){
+            if(current->next->data.getIp().getInt() < ip2){
                 while (current->next != nullptr) {
                     Node<T> *temp = current->next;
                     current->next = temp->next;

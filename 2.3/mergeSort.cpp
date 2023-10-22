@@ -15,7 +15,7 @@ Node<T>* merge(Node<T>* left, Node<T>* right) {
         return left;
     }
     
-    if (left->data.getIp().getInt() < right->data.getIp().getInt()) {
+    if (left->data.getIp().getInt() > right->data.getIp().getInt()) {
         result = left;
         result->next = merge(left->next, right);
     } else {

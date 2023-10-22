@@ -48,9 +48,9 @@ int main() {
     list.sortByIp();
     
     string input1, input2;
-    cout << "Indica la IP del INICIO de la busqueda: ";
+    cout << "Indica la IP (MAYOR), donde COMIENZA la busqueda DESCENDENTE: ";
     cin >> input1;
-    cout << "Indica la IP del FINAL de la busqueda: ";
+    cout << "Indica la IP (MENOR), donde TERMINA la busqueda DESCENDENTE: ";
     cin >> input2;
     IP ip1(input1), ip2(input2);
     list.filterByIp(ip1.getInt(), ip2.getInt());
