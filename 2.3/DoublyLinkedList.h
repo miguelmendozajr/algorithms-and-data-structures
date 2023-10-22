@@ -121,22 +121,20 @@ void DoublyLinkedList<T>::filterByIp(long long ip1, long long ip2) {
             current = current->next;
             delete temp;
         }
-        else if(currentIp > ip2){
-            while (current->next != nullptr) {
-                Node<T> *temp = current->next;
-                current->next = temp->next;
-                if (current->next != nullptr) {
-                    current->next->prev = current;
-                }
-                delete temp;
-            }
-            
-            return;
-
-        }
         else {
-            current = current->next;
-            cout << current->next->data.getIp().getInt() <<endl;
+            if(current->next->data.getIp().getInt() > ip2){
+                while (current->next != nullptr) {
+                    Node<T> *temp = current->next;
+                    current->next = temp->next;
+                    if (current->next != nullptr) {
+                        current->next->prev = current;
+                    }
+                    delete temp;
+                }              
+            return;
+            } else {
+                current = current->next;
+            }
         }
     }
 }

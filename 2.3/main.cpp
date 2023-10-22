@@ -44,7 +44,7 @@ int main() {
         my_file.close();
 	}
 
-    cout << "Ordenando por IP (toma bastante tiempo)..." << endl;
+    cout << "Ordenando por IP" << endl;
     list.sortByIp();
     
     string input1, input2;
