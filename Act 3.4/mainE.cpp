@@ -1,4 +1,3 @@
-// Gabriel Ernesto Mujica Proulx A01285409
 // Miguel Mendoza Jaidar A01234354
 // Esteban Sierra Baccio A00836286
 
@@ -21,8 +20,8 @@ int main() {
 
     // Abre el archivo bitacora.txt
 	fstream my_file;
-	my_file.open("bitacora.txt", ios::in);
-	if (!my_file) cout << "No such file";
+	my_file.open("bitacora-V2.txt", ios::in);
+	if (!my_file) cout << "No such file" << endl;
 	else {
 
         // Declaramos la estructura de datos a usar.
@@ -71,7 +70,7 @@ int main() {
             int segundo = stoi(str5 + str6);
             */
 
-            print("Se cargó la línea: " + to_string(lineNumber));
+            print("Se cargo la linea: " + to_string(lineNumber));
 
             /*
             // Se crea el objeto ERROR con los datos de cada línea de la bitácora y se agrega a la 
