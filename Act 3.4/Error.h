@@ -2,6 +2,7 @@
 // Miguel Mendoza Jaidar A01234354
 // Esteban Sierra Baccio A00836286
 
+// Actividad 3.4
 // Declaración y definición de la clase Error
 // Ultima modificacion 07/09/2023
 
