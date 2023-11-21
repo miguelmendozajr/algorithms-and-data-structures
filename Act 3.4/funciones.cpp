@@ -1,3 +1,11 @@
+// Gabriel Ernesto Mujica Proulx A01285409
+// Miguel Mendoza Jaidar A01234354
+// Esteban Sierra Baccio A00836286
+
+// Actividad 3.4
+// Ultima modificacion 21/nov/2023
+// Funciones Necesarias
+
 #ifndef FUNCIONES_CPP
 #define FUNCIONES_CPP
 
