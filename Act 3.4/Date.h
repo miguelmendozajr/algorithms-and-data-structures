@@ -1,8 +1,10 @@
-/*
-    Esteban Sierra Baccio
-    A00836286
-    10/09/2023
-*/
+// Gabriel Ernesto Mujica Proulx A01285409
+// Miguel Mendoza Jaidar A01234354
+// Esteban Sierra Baccio A00836286
+
+// Actividad 3.4
+// Ultima modificacion: 10/09/2023
+// Declaracion e Implementacion Clase Date
 
 #include <iostream>     // "iostream" permite la interacción con la termimnal
 #include <string.h>     // "string.h" permite el uso de la clase *string*
