@@ -1,3 +1,11 @@
+// Gabriel Ernesto Mujica Proulx A01285409
+// Miguel Mendoza Jaidar A01234354
+// Esteban Sierra Baccio A00836286
+
+// Actividad 3.4
+// Ultima modificacion 21/nov/2023
+// Declaracion e Implementacion Clase BST
+
 #ifndef BST_H
 #define BST_H
 #include "nodeT.h"
@@ -8,6 +16,8 @@ template <typename T>
 class BST {
   private:
     nodeT<T> *root; // no espeficicamos el tipo de dato a guardar en el nodo
+    int greatestKey;
+    
   public:
     BST();
     ~BST();
@@ -25,11 +35,14 @@ class BST {
 
     void printKey(int key);
     void keySearch(nodeT<T>* r, int key);
+    void calcGreatestKey(nodeT<T>* r);
+    int getGreatestKey();
 };
 
 template <typename T>
 BST<T>::BST() {
     root = NULL;
+    greatestKey = 0;
 }
 
 
@@ -54,7 +67,6 @@ bool BST<T>::search(T data) {
         if (p->Data() == data){
             cout << "Ya existe el valor: " << data.getIP() << endl;
             p -> incKey(); //Se incrementa el valor de la llave por el valor repetido
-            cout << "Nueva llave: " << p -> Key() << endl; 
             return true;
         }
         p = p->Data() > data ? p->Left() : p->Right(); // avanzamos a la izquierda o derecha segun el orden entre data y el data del nodo
@@ -80,7 +92,7 @@ void BST<T>::add(T data) {
         root = nodo; // se trata del primer elemento a agregar
     }
     else { // ya existe al menos un elemento en el arbol
-        
+
         if (padre->Data() > data) {
             padre->setLeft(nodo); // agregarlo a izq
         }
@@ -206,25 +218,24 @@ void BST<T>::keySearch(nodeT<T>* r, int key){
     keySearch(r->Right(), key);
 }
 
-/*
 template <typename T>
-void BST<T>::printPorNivel(){
-    queue2<nodeT<T>*> fila;
-    nodeT<T> *nodo;
-    if (root != NULL) {
-        fila.push(root);
+void BST<T>::calcGreatestKey(nodeT<T>* r){
+    if (r == NULL){
+        return;
     }
-    while (!fila.isEmpty()) {
-        nodo = fila.front();
-        if (nodo->Left() != NULL) { // se agrega hijo izquierdo en caso de existir
-            fila.push(nodo->Left());
-        }
-        if (nodo->Right() != NULL) { // se agrega hijo derecho en caso de existir
-            fila.push(nodo->Right());
-        }
-        fila.pop(); // remueve primer elemento de la fila que ya fue procesado
-        std::cout << nodo->Data() << " ";
+    if (r->Key() > greatestKey){
+        greatestKey = r->Key();
     }
+    calcGreatestKey(r->Left());
+    calcGreatestKey(r->Right());
+
 }
-*/
+
+template <typename T>
+int BST<T>::getGreatestKey(){
+    calcGreatestKey(root);
+    return greatestKey;
+}
+
+
 #endif
