@@ -1,3 +1,11 @@
+// Gabriel Ernesto Mujica Proulx A01285409
+// Miguel Mendoza Jaidar A01234354
+// Esteban Sierra Baccio A00836286
+
+// Actividad 3.4
+// Ultima modificacion 21/nov/2023
+// Declaracion e Implementacion Clase Nodo
+
 #ifndef NODET_H
 #define NODET_H
 
@@ -33,9 +41,10 @@ nodeT<T>::nodeT(T data) {
     key = 1;
 }
 
+// Funcion para incrementar el valor de la llave por 1, para representar repeticion de datos
 template <typename T>
 void nodeT<T>::incKey(){
-    key++; // se incrementa el valor de la llave por 1
+    key++;
 }
 
 #endif
