@@ -12,7 +12,7 @@ class BST {
     BST();
     ~BST();
     void Delete(nodeT<T>*);
-    bool search(T);
+    int search(T);
     void add(T);
     void pop(T);
     void printPreorden();
@@ -48,18 +48,15 @@ void BST<T>::Delete(nodeT<T>* nodo) {
 }
 
 template <typename T>
-bool BST<T>::search(T data) {
+int BST<T>::search(T data) {
     nodeT<T> *p = root; // pointer para recorrer el arbol
     while (p != NULL) {
-        if (p->Data() == data){
-            cout << "Ya existe el valor: " << data.getIP() << endl;
-            p -> incKey(); //Se incrementa el valor de la llave por el valor repetido
-            cout << "Nueva llave: " << p -> Key() << endl; 
-            return true;
+        if (p->Data() == data){  
+            return p->Data().Key();
         }
         p = p->Data() > data ? p->Left() : p->Right(); // avanzamos a la izquierda o derecha segun el orden entre data y el data del nodo
     }
-    return false; // no se encontro el dato
+    return 0; // no se encontro el dato
 }
 
 
@@ -68,9 +65,12 @@ void BST<T>::add(T data) {
     nodeT<T> *p = root; // pointer para recorrer el arbol
     nodeT<T> *padre = NULL;
     nodeT<T> *nodo;
-    if(search(data) == true){
-        return;
-        } // ya esta el dato en nuestro arbol
+    if(search(data) != 0){
+        data.setKey(search(data) + 1);
+        cout << "Ya existe el valor: " << data.getIP() << endl; 
+        cout << "Nueva llave: " << data.Key() << endl;   
+        pop(data);  
+    } // ya esta el dato en nuestro arbol
     nodo = new nodeT<T>(data);
     while (p!= NULL) {
         padre = p;
@@ -94,8 +94,9 @@ template <typename T>
 void BST<T>::pop(T data) {
     nodeT<T> *p = root; // pointer para recorrer el arbol
     nodeT<T> *padre = NULL;
-    if (!search(data))
+    if (search(data) == 0){
         return; // el dato no esta en nuestro arbol
+    }
     while (p->Data() != data) {
         padre = p;
         p = p->Data() > data ? p->Left() : p->Right();
@@ -106,10 +107,12 @@ void BST<T>::pop(T data) {
             root = NULL; // se vacia el arbol
         }
         else {
-            if (padre->Data() > data)
+            if (padre->Data() > data){
                 padre->setLeft(NULL);
-            else
+            }
+            else{
                 padre->setRight(NULL);
+            }
         }
     }
     else if (p->Left() == NULL || p->Right() == NULL) { // nodo con solo un hijo
@@ -120,10 +123,12 @@ void BST<T>::pop(T data) {
             root = subarbol;
         }
         else {
-            if (padre->Data() > data)
+            if (padre->Data() > data){
                 padre->setLeft(subarbol);
-            else
+            }
+            else{
                 padre->setRight(subarbol);
+            }
         }
     }
     else { // nodo con dos hijos
@@ -170,7 +175,7 @@ void BST<T>::inorden(nodeT<T>* r){
     if (r == NULL)
         return;
     inorden(r->Left());
-    std::cout << r->Data() << " ";
+    std::cout << r->Data().getIP() << " ";
     inorden(r->Right());
 }
 
@@ -199,7 +204,7 @@ template <typename T>
 void BST<T>::keySearch(nodeT<T>* r, int key){
     if (r == NULL)
         return;
-    if(r->Key() == key){
+    if(r->Data().Key() == key){
         std::cout << r->Data().getIP() << endl;
     }
     keySearch(r->Left(), key);
